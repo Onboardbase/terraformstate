@@ -18,7 +18,7 @@ $ npm install -g terraformstate
 $ terraformstate COMMAND
 running command...
 $ terraformstate (--version)
-terraformstate/0.0.0 darwin-arm64 node-v18.17.0
+terraformstate/0.0.0 darwin-arm64 node-v18.16.0
 $ terraformstate --help [COMMAND]
 USAGE
   $ terraformstate COMMAND
@@ -27,8 +27,6 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`terraformstate hello PERSON`](#terraformstate-hello-person)
-* [`terraformstate hello world`](#terraformstate-hello-world)
 * [`terraformstate help [COMMANDS]`](#terraformstate-help-commands)
 * [`terraformstate plugins`](#terraformstate-plugins)
 * [`terraformstate plugins:install PLUGIN...`](#terraformstate-pluginsinstall-plugin)
@@ -40,48 +38,9 @@ USAGE
 * [`terraformstate plugins:uninstall PLUGIN...`](#terraformstate-pluginsuninstall-plugin-1)
 * [`terraformstate plugins:uninstall PLUGIN...`](#terraformstate-pluginsuninstall-plugin-2)
 * [`terraformstate plugins update`](#terraformstate-plugins-update)
-
-## `terraformstate hello PERSON`
-
-Say hello
-
-```
-USAGE
-  $ terraformstate hello PERSON -f <value>
-
-ARGUMENTS
-  PERSON  Person to say hello to
-
-FLAGS
-  -f, --from=<value>  (required) Who is saying hello
-
-DESCRIPTION
-  Say hello
-
-EXAMPLES
-  $ oex hello friend --from oclif
-  hello friend from oclif! (./src/commands/hello/index.ts)
-```
-
-_See code: [src/commands/hello/index.ts](https://github.com/Onboardbase/terraformstate/blob/v0.0.0/src/commands/hello/index.ts)_
-
-## `terraformstate hello world`
-
-Say hello world
-
-```
-USAGE
-  $ terraformstate hello world
-
-DESCRIPTION
-  Say hello world
-
-EXAMPLES
-  $ terraformstate hello world
-  hello world! (./src/commands/hello/world.ts)
-```
-
-_See code: [src/commands/hello/world.ts](https://github.com/Onboardbase/terraformstate/blob/v0.0.0/src/commands/hello/world.ts)_
+* [`terraformstate tf [COMMAND]`](#terraformstate-tf-command)
+* [`terraformstate tf decrypt`](#terraformstate-tf-decrypt)
+* [`terraformstate tf encrypt`](#terraformstate-tf-encrypt)
 
 ## `terraformstate help [COMMANDS]`
 
@@ -377,4 +336,68 @@ DESCRIPTION
 ```
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v4.1.14/src/commands/plugins/update.ts)_
+
+## `terraformstate tf [COMMAND]`
+
+describe the command here
+
+```
+USAGE
+  $ terraformstate tf [COMMAND] [-C <value>] [--enc-key <value>] [-f <value>] [-h]
+
+ARGUMENTS
+  COMMAND  the command to run
+
+FLAGS
+  -C, --command=<value>  Terraform command to execute
+  -f, --file=<value>     Path to terraforms state file
+  -h, --help             Show CLI help.
+  --enc-key=<value>      Encryption Key
+
+DESCRIPTION
+  describe the command here
+
+EXAMPLES
+  $ terraformstate tf
+```
+
+_See code: [src/commands/tf/index.ts](https://github.com/Onboardbase/terraformstate/blob/v0.0.0/src/commands/tf/index.ts)_
+
+## `terraformstate tf decrypt`
+
+Decrypt a TF state command back to how it was
+
+```
+USAGE
+  $ terraformstate tf decrypt [--enc-key <value>] [-f <value>] [-h]
+
+FLAGS
+  -f, --file=<value>  Path to file
+  -h, --help          Show CLI help.
+  --enc-key=<value>   Encryption Key
+
+DESCRIPTION
+  Decrypt a TF state command back to how it was
+```
+
+_See code: [src/commands/tf/decrypt.ts](https://github.com/Onboardbase/terraformstate/blob/v0.0.0/src/commands/tf/decrypt.ts)_
+
+## `terraformstate tf encrypt`
+
+Run a command with secrets injected into the environment
+
+```
+USAGE
+  $ terraformstate tf encrypt [--enc-key <value>] [-f <value>] [-h]
+
+FLAGS
+  -f, --file=<value>  Path to file
+  -h, --help          Show CLI help.
+  --enc-key=<value>   Encryption Key
+
+DESCRIPTION
+  Run a command with secrets injected into the environment
+```
+
+_See code: [src/commands/tf/encrypt.ts](https://github.com/Onboardbase/terraformstate/blob/v0.0.0/src/commands/tf/encrypt.ts)_
 <!-- commandsstop -->

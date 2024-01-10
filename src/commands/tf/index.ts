@@ -68,13 +68,7 @@ export default class Tf extends Command {
       }
     } else this.error(`Could not locate file: ${pathToFile}`)
 
-    /**
-     * check if user has an encrypted tfstate, if yes, decrypt it before running
-     * the command
-     */
-
     const daemon = executeCommandInChildProcess({command: command.trim(), envs: process.env})
-
     daemon.on('exit', async () => {
       try {
         if (flags.file === '-') {
