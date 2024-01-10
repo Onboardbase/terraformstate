@@ -71,9 +71,9 @@
     "prepack": "yarn build && oclif manifest && oclif readme",
     "prepare": "yarn build",
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
-    "version": "oclif readme && git add README.md"
+    "version:disabled": "oclif readme && git add README.md"
   },
-  "version": "0.0.3",
+  "version": "0.0.4",
   "bugs": "https://github.com/Onboardbase/terraformstate/issues",
   "keywords": [
     "oclif"
