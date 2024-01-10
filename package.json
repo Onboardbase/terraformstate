@@ -12,7 +12,7 @@
     "death": "^1.1.0",
     "node-machine-id": "^1.1.12"
   },
-  "description": "oclif example Hello World CLI",
+  "description": "Secure your terraform state files",
   "devDependencies": {
     "@oclif/prettier-config": "^0.2.1",
     "@oclif/test": "^3",
@@ -73,7 +73,7 @@
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif readme && git add README.md"
   },
-  "version": "0.0.1",
+  "version": "0.0.2",
   "bugs": "https://github.com/Onboardbase/terraformstate/issues",
   "keywords": [
     "oclif"

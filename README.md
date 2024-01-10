@@ -17,7 +17,7 @@ $ npm install -g terraformstate
 $ terraformstate COMMAND
 running command...
 $ terraformstate (--version)
-terraformstate/0.0.1 darwin-arm64 node-v18.17.0
+terraformstate/0.0.2 darwin-arm64 node-v18.17.0
 $ terraformstate --help [COMMAND]
 USAGE
   $ terraformstate COMMAND
@@ -361,7 +361,7 @@ EXAMPLES
     tf -f ./terraform.tfstate -C "terraform plan"
 ```
 
-_See code: [src/commands/tf/index.ts](https://github.com/Onboardbase/terraformstate/blob/v0.0.1/src/commands/tf/index.ts)_
+_See code: [src/commands/tf/index.ts](https://github.com/Onboardbase/terraformstate/blob/v0.0.2/src/commands/tf/index.ts)_
 
 ## `terraformstate tf decrypt`
 
@@ -380,7 +380,7 @@ DESCRIPTION
   Decrypts an encrypted terraform.tfstate file
 ```
 
-_See code: [src/commands/tf/decrypt.ts](https://github.com/Onboardbase/terraformstate/blob/v0.0.1/src/commands/tf/decrypt.ts)_
+_See code: [src/commands/tf/decrypt.ts](https://github.com/Onboardbase/terraformstate/blob/v0.0.2/src/commands/tf/decrypt.ts)_
 
 ## `terraformstate tf encrypt`
 
@@ -399,5 +399,5 @@ DESCRIPTION
   Encrypts a terraform.tfstate file
 ```
 
-_See code: [src/commands/tf/encrypt.ts](https://github.com/Onboardbase/terraformstate/blob/v0.0.1/src/commands/tf/encrypt.ts)_
+_See code: [src/commands/tf/encrypt.ts](https://github.com/Onboardbase/terraformstate/blob/v0.0.2/src/commands/tf/encrypt.ts)_
 <!-- commandsstop -->
