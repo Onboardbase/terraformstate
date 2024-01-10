@@ -14,9 +14,11 @@ export default class Tf extends Command {
     command: Args.string({description: 'the command to run'}),
   }
 
-  static description = 'describe the command here'
+  static description = 'Execute a Terraform command and encrypt the state file afterwards'
 
-  static examples = ['<%= config.bin %> <%= command.id %>']
+  static examples = [`<%= config.bin %> <%= command.id %>
+  tf -f ./terraform.tfstate -C "terraform plan"
+  `]
 
   static flags = {
     command: Flags.string({

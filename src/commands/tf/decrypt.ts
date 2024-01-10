@@ -6,7 +6,7 @@ import {decryptText, doesFileExist, isValidJSONString} from '../../utils'
 import chalk = require('chalk')
 
 export default class Decrypt extends Command {
-  static description = 'Decrypt a TF state command back to how it was'
+  static description = 'Decrypts an encrypted terraform.tfstate file'
 
   static flags = {
     'enc-key': Flags.string({

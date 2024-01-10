@@ -4,7 +4,6 @@ oclif-hello-world
 oclif example Hello World CLI
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![CircleCI](https://circleci.com/gh/oclif/hello-world/tree/main.svg?style=shield)](https://circleci.com/gh/oclif/hello-world/tree/main)
 [![GitHub license](https://img.shields.io/github/license/oclif/hello-world)](https://github.com/oclif/hello-world/blob/main/LICENSE)
 
 <!-- toc -->
@@ -18,7 +17,7 @@ $ npm install -g terraformstate
 $ terraformstate COMMAND
 running command...
 $ terraformstate (--version)
-terraformstate/0.0.0 darwin-arm64 node-v18.16.0
+terraformstate/0.0.1 darwin-arm64 node-v18.17.0
 $ terraformstate --help [COMMAND]
 USAGE
   $ terraformstate COMMAND
@@ -339,7 +338,7 @@ _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/
 
 ## `terraformstate tf [COMMAND]`
 
-describe the command here
+Execute a Terraform command and encrypt the state file afterwards
 
 ```
 USAGE
@@ -355,17 +354,18 @@ FLAGS
   --enc-key=<value>      Encryption Key
 
 DESCRIPTION
-  describe the command here
+  Execute a Terraform command and encrypt the state file afterwards
 
 EXAMPLES
   $ terraformstate tf
+    tf -f ./terraform.tfstate -C "terraform plan"
 ```
 
-_See code: [src/commands/tf/index.ts](https://github.com/Onboardbase/terraformstate/blob/v0.0.0/src/commands/tf/index.ts)_
+_See code: [src/commands/tf/index.ts](https://github.com/Onboardbase/terraformstate/blob/v0.0.1/src/commands/tf/index.ts)_
 
 ## `terraformstate tf decrypt`
 
-Decrypt a TF state command back to how it was
+Decrypts an encrypted terraform.tfstate file
 
 ```
 USAGE
@@ -377,14 +377,14 @@ FLAGS
   --enc-key=<value>   Encryption Key
 
 DESCRIPTION
-  Decrypt a TF state command back to how it was
+  Decrypts an encrypted terraform.tfstate file
 ```
 
-_See code: [src/commands/tf/decrypt.ts](https://github.com/Onboardbase/terraformstate/blob/v0.0.0/src/commands/tf/decrypt.ts)_
+_See code: [src/commands/tf/decrypt.ts](https://github.com/Onboardbase/terraformstate/blob/v0.0.1/src/commands/tf/decrypt.ts)_
 
 ## `terraformstate tf encrypt`
 
-Run a command with secrets injected into the environment
+Encrypts a terraform.tfstate file
 
 ```
 USAGE
@@ -396,8 +396,8 @@ FLAGS
   --enc-key=<value>   Encryption Key
 
 DESCRIPTION
-  Run a command with secrets injected into the environment
+  Encrypts a terraform.tfstate file
 ```
 
-_See code: [src/commands/tf/encrypt.ts](https://github.com/Onboardbase/terraformstate/blob/v0.0.0/src/commands/tf/encrypt.ts)_
+_See code: [src/commands/tf/encrypt.ts](https://github.com/Onboardbase/terraformstate/blob/v0.0.1/src/commands/tf/encrypt.ts)_
 <!-- commandsstop -->
