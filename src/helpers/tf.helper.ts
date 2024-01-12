@@ -14,7 +14,9 @@ export const encryptTfState = async (flags: {'enc-key'?: string; file?: string},
       writeFileSync(pathToFile, encryptedFile)
       that.log(`${greenBright(pathToFile)} encrypted successfully`)
     } else {
-      that.error(`Attempted to encrypt ${pathToFile} but it is not a valid JSON file. \nIt could be encrypted already. \nTry decrypting it first.`)
+      that.error(
+        `Attempted to encrypt ${pathToFile} but it is not a valid JSON file. \nIt could be encrypted already. \nTry decrypting it first.`,
+      )
     }
-  }
+  } else that.error(`Could not locate file: ${pathToFile}`)
 }

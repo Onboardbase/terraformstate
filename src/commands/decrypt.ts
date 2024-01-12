@@ -1,7 +1,7 @@
 import {Command, Flags} from '@oclif/core'
 import {readFileSync, writeFileSync} from 'node:fs'
 
-import {decryptText, doesFileExist, isValidJSONString} from '../../utils'
+import {decryptText, doesFileExist, isValidJSONString} from '../utils'
 
 import chalk = require('chalk')
 

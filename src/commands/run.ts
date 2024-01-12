@@ -3,22 +3,24 @@
 import {Args, Command, Flags} from '@oclif/core'
 import {readFileSync, unlinkSync, writeFileSync} from 'node:fs'
 
-import {encryptTfState} from '../../helpers/tf.helper'
-import {decryptText, doesFileExist, isValidJSONString} from '../../utils'
-import {executeCommandInChildProcess} from '../../utils/execute-command'
+import {encryptTfState} from '../helpers/tf.helper'
+import {decryptText, doesFileExist, isValidJSONString} from '../utils'
+import {executeCommandInChildProcess} from '../utils/execute-command'
 
 import ON_DEATH = require('death')
 
-export default class Tf extends Command {
+export default class Default extends Command {
   static args = {
     command: Args.string({description: 'the command to run'}),
   }
 
   static description = 'Execute a Terraform command and encrypt the state file afterwards'
 
-  static examples = [`<%= config.bin %> <%= command.id %>
-  tf -f ./terraform.tfstate -C "terraform plan"
-  `]
+  static examples = [
+    `<%= config.bin %> <%= command.id %>
+   -f ./terraform.tfstate -C "terraform plan"
+  `,
+  ]
 
   static flags = {
     command: Flags.string({
@@ -48,7 +50,7 @@ export default class Tf extends Command {
       }
     })
 
-    const {args, flags} = await this.parse(Tf)
+    const {args, flags} = await this.parse(Default)
     const command = flags.command ?? args.command
     if (!command) this.error('Please specify a Terraform command to Execute')
 

@@ -1,6 +1,6 @@
 import {Command, Flags} from '@oclif/core'
 
-import {encryptTfState} from '../../helpers/tf.helper'
+import {encryptTfState} from '../helpers/tf.helper'
 
 export default class Encrypt extends Command {
   static description = 'Encrypts a terraform.tfstate file'

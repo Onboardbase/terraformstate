@@ -6,6 +6,8 @@ A CLI tool that helps you secure your terraform state files.
 [![GitHub license](https://img.shields.io/github/license/oclif/hello-world)](https://github.com/oclif/hello-world/blob/main/LICENSE)
 
 <!-- toc -->
+* [Installation](#installation)
+* [Running with npx](#running-with-npx)
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
@@ -18,7 +20,7 @@ $ npm install -g terraformstate
 # Running with npx
 You can also run the CLI with npx without having to install it on your machine:
 ```sh-session
-npx terraformstate tf -f <path-to-terraform-state-file> -C "Terraform command to run"
+npx terraformstate -f <path-to-terraform-state-file> -C "Terraform command to run"
 ```
 Note: if you don't provide a `-f` flag, it will default to `.terraform.tfstate` file
 
@@ -27,52 +29,69 @@ Note: if you don't provide a `-f` flag, it will default to `.terraform.tfstate` 
 ```sh-session
 $ npm install -g terraformstate
 
-# to see the list of commands run
-$ terraformstate 
+$ terraformstate --version
+terraformstate/0.0.4 darwin-arm64 node-v18.16.0
 
-# to get more information about how to use a command run 
 $ terraformstate --help [COMMAND]
-
 USAGE
   $ terraformstate COMMAND
 ...
 ```
 <!-- usagestop -->
+
+# Documentation
+The full documentation for the package is available here https://docs.terraformstate.com/docs/getting-started
+
 # Commands
 <!-- commands -->
+- [terraformstate](#terraformstate)
+- [Installation](#installation)
+- [Running with npx](#running-with-npx)
 - [Usage](#usage)
+- [Documentation](#documentation)
 - [Commands](#commands)
+  - [`terraformstate decrypt`](#terraformstate-decrypt)
+  - [`terraformstate encrypt`](#terraformstate-encrypt)
   - [`terraformstate help [COMMANDS]`](#terraformstate-help-commands)
-  - [`terraformstate tf [COMMAND]`](#terraformstate-tf-command)
-  - [`terraformstate tf decrypt`](#terraformstate-tf-decrypt)
-  - [`terraformstate tf encrypt`](#terraformstate-tf-encrypt)
+  - [`terraformstate run [COMMAND]` \[This is the default Command\]](#terraformstate-run-command-this-is-the-default-command)
 
-# Examples
-## Encrypting a terraform state file 
+## `terraformstate decrypt`
 
-To encrypt a terraform state file run:
-```sh-session
-$ terraformstate tf:encrypt -f <path-to-terraform-state-file> 
+Decrypts an encrypted terraform.tfstate file
+
 ```
-Note: if you don't provide a `-f` flag, it will default to `.terraform.tfstate` file
+USAGE
+  $ terraformstate decrypt [--enc-key <value>] [-f <value>] [-h]
 
-## Running a terafform command 
-`terraformstate` can run your terraform commands against your state file - whether it is encrypted or not.
-If the state file is encrypted, terraformstate will decrypt it, run the command and encrypt it back. 
+FLAGS
+  -f, --file=<value>  Path to file
+  -h, --help          Show CLI help.
+  --enc-key=<value>   Encryption Key
 
-To execute a terraform command run:
-```sh-session
-$ terraformstate tf -f <path-to-terraform-state-file> -C "terraform plan"
-```
-Note: if you don't provide a `-f` flag, it will default to `.terraform.tfstate` file
-
-## Decrypting a terraform state file
-To decrypt a terraform state file run:
-```sh-session
-$ terraformstate tf:decrypt -f <path-to-terraform-state-file> 
+DESCRIPTION
+  Decrypts an encrypted terraform.tfstate file
 ```
 
-For more information on how to supply encryption keys and manage your keys, read the docs here https://docs.terraformstate.com/docs/why-terraformstate
+_See code: [src/commands/decrypt.ts](https://github.com/Onboardbase/terraformstate/blob/v0.0.4/src/commands/decrypt.ts)_
+
+## `terraformstate encrypt`
+
+Encrypts a terraform.tfstate file
+
+```
+USAGE
+  $ terraformstate encrypt [--enc-key <value>] [-f <value>] [-h]
+
+FLAGS
+  -f, --file=<value>  Path to file
+  -h, --help          Show CLI help.
+  --enc-key=<value>   Encryption Key
+
+DESCRIPTION
+  Encrypts a terraform.tfstate file
+```
+
+_See code: [src/commands/encrypt.ts](https://github.com/Onboardbase/terraformstate/blob/v0.0.4/src/commands/encrypt.ts)_
 
 ## `terraformstate help [COMMANDS]`
 
@@ -92,13 +111,13 @@ DESCRIPTION
   Display help for terraformstate.
 ```
 
-## `terraformstate tf:[COMMAND]`
+## `terraformstate run [COMMAND]` [This is the default Command]
 
 Execute a Terraform command and encrypt the state file afterwards
 
 ```
 USAGE
-  $ terraformstate tf [COMMAND] [-C <value>] [--enc-key <value>] [-f <value>] [-h]
+  $ terraformstate run [COMMAND] [-C <value>] [--enc-key <value>] [-f <value>] [-h]
 
 ARGUMENTS
   COMMAND  the command to run
@@ -113,47 +132,8 @@ DESCRIPTION
   Execute a Terraform command and encrypt the state file afterwards
 
 EXAMPLES
-  $ terraformstate tf
-    tf -f ./terraform.tfstate -C "terraform plan"
+  $ terraformstate run -f ./terraform.tfstate -C "terraform plan"
 ```
 
-_See code: [src/commands/tf/index.ts](https://github.com/Onboardbase/terraformstate/blob/v0.0.2/src/commands/tf/index.ts)_
-
-## `terraformstate tf:decrypt`
-
-Decrypts an encrypted terraform.tfstate file
-
-```
-USAGE
-  $ terraformstate tf decrypt [--enc-key <value>] [-f <value>] [-h]
-
-FLAGS
-  -f, --file=<value>  Path to file
-  -h, --help          Show CLI help.
-  --enc-key=<value>   Encryption Key
-
-DESCRIPTION
-  Decrypts an encrypted terraform.tfstate file
-```
-
-_See code: [src/commands/tf/decrypt.ts](https://github.com/Onboardbase/terraformstate/blob/v0.0.2/src/commands/tf/decrypt.ts)_
-
-## `terraformstate tf:encrypt`
-
-Encrypts a terraform.tfstate file
-
-```
-USAGE
-  $ terraformstate tf encrypt [--enc-key <value>] [-f <value>] [-h]
-
-FLAGS
-  -f, --file=<value>  Path to file
-  -h, --help          Show CLI help.
-  --enc-key=<value>   Encryption Key
-
-DESCRIPTION
-  Encrypts a terraform.tfstate file
-```
-
-_See code: [src/commands/tf/encrypt.ts](https://github.com/Onboardbase/terraformstate/blob/v0.0.2/src/commands/tf/encrypt.ts)_
+_See code: [src/commands/run.ts](https://github.com/Onboardbase/terraformstate/blob/v0.0.4/src/commands/run.ts)_
 <!-- commandsstop -->
