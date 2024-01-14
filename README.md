@@ -1,6 +1,6 @@
 # terraformstate
 
-A CLI tool that helps you protect your terraform state files in minutes.
+A CLI tool that helps you secure your terraform state files in minutes.
 
 <!-- toc -->
 * [Installation](#installation)
