@@ -3,16 +3,24 @@
 A CLI tool that helps you secure your terraform state files in minutes.
 
 <!-- toc -->
-* [Installation](#installation)
-* [Running with npx](#running-with-npx)
-* [Usage](#usage)
+- [terraformstate](#terraformstate)
+- [Installation](#installation)
+  - [npm](#npm)
+  - [yarn](#yarn)
+- [Running with npx](#running-with-npx)
+- [Documentation](#documentation)
 
   
 <!-- tocstop -->
 # Installation
-
+## npm
 ```bash
-npm install -g terraformstate # yarn add terraformstate
+npm install -g terraformstate 
+```
+
+## yarn
+```bash
+yarn global add terraformstate
 ```
 
 # Running with npx
